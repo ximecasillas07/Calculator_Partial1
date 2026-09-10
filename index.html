@@ -5,96 +5,89 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
   <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
   <title>Calculator app</title>
+
+  <!-- google fonts: spartan (weight 700)-->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Spartan:wght@700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+
 </head>
 <body>
-  <main>
-    <div>
-      <h1>calc</h1>
-      <div>
-        <h2>THEME</h2>
-        <div>
-          <div>
-            <p>1</p>
-            <p>2</p>
-            <p>3</p>
+  <main class="calculator" role="application" aria-label="Calculator">
+    <!-- header: marca de la izquierda y el control del tema-->
+    <header class="calc-header">
+    <div class="brand-row">
+      <h1 class="brand">calc</h1>
+      <!-- control de tema números 1 2 3 -->
+      <div class="theme-section" aria-label="Theme Selector">
+        <h2 class="theme-title">THEME</h2>
+        <div class="theme-controls">
+          <div class="theme-labels">
+            <p class="theme-label">1</p>
+            <p class="theme-label">2</p>
+            <p class="theme-label">3</p>
           </div>
-          <div>
-            <input type="range" min="0" max="2" value="0">
+          <div class="theme-slider">
+            <input class="theme-range" id="themaRange" type="range" min="0" max="2" value="0" aria-label="Choose theme">
           </div>    
         </div>
       </div>
     </div>
-    <div>
-      <div>
-        <p></p>
+    </header>
+
+    <!--pantalla de la calculadora-->
+    <section class="display" aria-label="Calculator screen">
+      <div class="display-inner">
+        <!-- se mostraran los numeros-->
+        <p class="display-text" id="display" aria-live="polite"></p>
       </div>
+    </section>
+
+    <!-- teclado de los botones-->
+    <nav class="keypad" aria-label="Calculator keypad">
+
+      <!-- primera fila -->
+    <div class="key-row">
+          <button type="button" class="key number" data-key="7"><span class="key-label">7</span></button>
+          <button type="button" class="key number" data-key="8"><span class="key-label">8</span></button>
+          <button type="button" class="key number" data-key="9"><span class="key-label">9</span></button>
+          <button type="button" class="key control" data-key="DEL"><span class="key-label">DEL</span></button>
     </div>
-    <div>
-      <div>
-        <div>
-          <p>7</p>
-        </div>
-        <div>
-          <p>8</p>
-        </div>
-        <div>
-          <p>9</p>
-        </div>
-        <div>
-          <p>DEL</p>
-        </div>
-      </div>
-      <div>
-        <div>
-          <p>4</p>
-        </div>
-        <div>
-          <p>5</p>
-        </div>
-        <div>
-          <p>6</p>
-        </div>
-        <div id="+">
-          <p>+</p>
-        </div>
-      </div>
-      <div>
-        <div>
-          <p>1</p>
-        </div>
-        <div>
-          <p>2</p>
-        </div>
-        <div>
-          <p>3</p>
-        </div>
-        <div id="-">
-          <p>-</p>
-        </div>
-      </div>
-      <div>
-        <div>
-          <p>.</p>
-        </div>
-        <div>
-          <p>0</p>
-        </div>
-        <div id="/">
-          <p>/</p>
-        </div>
-        <div id="x">
-          <p>x</p>
-        </div>
-      </div>
-      <div>
-        <div>
-          <p>RESET</p>
-        </div>
-        <div>
-          <p>=</p>
-        </div>
-      </div>
+    
+      <!-- segunda fila -->
+    <div class="key-row">
+          <button type="button" class="key number" data-key="4"><span class="key-label">4</span></button>
+          <button type="button" class="key number" data-key="5"><span class="key-label">5</span></button>
+          <button type="button" class="key number" data-key="6"><span class="key-label">6</span></button>
+          <button type="button" class="key operator" data-key="+"><span class="key-label">+</span></button>
     </div>
+  
+      <!-- tercera fila -->
+    <div class="key-row">
+          <button type="button" class="key number" data-key="1"><span class="key-label">1</span></button>
+          <button type="button" class="key number" data-key="2"><span class="key-label">2</span></button>
+          <button type="button" class="key number" data-key="3"><span class="key-label">3</span></button>
+          <button type="button" class="key operator" data-key="-"><span class="key-label">-</span></button>
+    </div>
+
+      <!-- cuarta fila -->
+    <div class="key-row">
+          <button type="button" class="key number" data-key="."><span class="key-label">.</span></button>
+          <button type="button" class="key number" data-key="0"><span class="key-label">0</span></button>
+          <button type="button" class="key operator" data-key="/"><span class="key-label">/</span></button>
+          <button type="button" class="key operator" data-key="x"><span class="key-label">x</span></button>
+    </div>
+    
+      <!-- fila de reset y = -->
+    <div class="key-row actions-row">
+          <button type="button" class="key action wide" data-key="RESET"><span class="key-label">RESET</span></button>
+          <button type="button" class="key action wide" data-key="="><span class="key-label">=</span></button>
+    </div>
+
+    </nav>
   </main>
+  <script src="scrips.js"></script>
 </body>
 </html>
