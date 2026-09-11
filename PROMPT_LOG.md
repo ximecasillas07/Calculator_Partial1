@@ -25,6 +25,4 @@ Set up the base CSS themes and classes required for the HTML, then start styling
 
 ### 4. Integration & Learnings
 
-_How does this code integrate with the rest of your system? What is the core mechanism you learned?_
-
 - **Core Mechanics:** This stylesheet serves as the visual foundation for the entire app, using custom properties tied to theme attributes so the interface shifts styles smoothly. We avoid writing duplicate code for every theme by telling the HTML to swap out those color values automatically with a single attribute change, keeping everything connected.
