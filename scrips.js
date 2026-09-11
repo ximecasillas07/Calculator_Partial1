@@ -3,10 +3,24 @@ document.addEventListener('DOMContentLoaded', () => {
     const displayEl = document.getElementById('display'); // donde se va mostrar el texto
     const buttons = document.querySelectorAll('.key'); //agarra el data-key de cada botón
 
-    // actuliza la pantalla de lo que ingresa el usuario
+    // barra de temas
+    const themeRange = document.querySelector('#themeRange');
+    if(themeRange){
+        themeRange.addEventListener('input', (e) => {
+            const value = e.target.value;
+            if (value === '0') {    // if bolita esta en cero, tema principal
+                document.documentElement.removeAttribute('data-theme');
+            } else {    // si bolita esta en uno o dos, cambia el tema correspondiente
+                document.documentElement.setAttribute('data-theme', value);
+            }
+        });
+    }
+
+    // actualiza la pantalla de lo que ingresa el usuario
     function updateDisplay(){
         const text = userInputs.join(''); //concatenar el array
         displayEl.textContent = text || '0'; //se muestra cuando esta vacío
+        displayEl.scrollLeft = displayEl.scrollWidth;   // overflow del display
     }
 
     //eliminar ultimo dato que metio el usuario

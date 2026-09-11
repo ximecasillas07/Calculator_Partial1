@@ -1,0 +1,264 @@
+@import url('https://fonts.googleapis.com/css2?family=League+Spartan:wght@700&display=swap');
+/* agregue font league spartan */
+
+/* CODIGO PARTE UNO */
+
+/* tema 1 - tema principal */
+:root {         /* selector de css, variables globales */
+  --clr-main-bg: hsl(222, 26%, 31%);     /* -- variables temas */
+  --clr-toggle-bg: hsl(223, 31%, 20%);
+  --clr-keypad-bg: hsl(223, 31%, 20%);
+  --clr-screen-bg: hsl(224, 36%, 15%);
+  
+  --clr-key-num-bg: hsl(30, 25%, 89%);
+  --clr-key-num-shadow: hsl(28, 16%, 65%);
+  --clr-key-num-text: hsl(221, 14%, 31%);
+
+  --clr-key-action-bg: hsl(225, 21%, 49%);
+  --clr-key-action-shadow: hsl(224, 28%, 35%);
+  --clr-key-action-text: hsl(0, 0%, 100%);
+
+  --clr-key-toggle-bg: hsl(6, 63%, 50%);
+  --clr-key-toggle-shadow: hsl(6, 70%, 34%);
+  --clr-key-toggle-text: hsl(0, 0%, 100%);
+  
+  --clr-text-main: hsl(0, 0%, 100%);
+}
+
+/* tema 2 */
+[data-theme="1"] {
+  --clr-main-bg: hsl(0, 0%, 90%);
+  --clr-toggle-bg: hsl(0, 5%, 81%);
+  --clr-keypad-bg: hsl(0, 5%, 81%);
+  --clr-screen-bg: hsl(0, 0%, 93%);
+  
+  --clr-key-num-bg: hsl(30, 5%, 89%);
+  --clr-key-num-shadow: hsl(35, 11%, 61%);
+  --clr-key-num-text: hsl(60, 10%, 19%);
+
+  --clr-key-action-bg: hsl(185, 42%, 37%);
+  --clr-key-action-shadow: hsl(185, 58%, 25%);
+  --clr-key-action-text: hsl(0, 0%, 100%);
+
+  --clr-key-toggle-bg: hsl(25, 98%, 40%);
+  --clr-key-toggle-shadow: hsl(25, 99%, 27%);
+  --clr-key-toggle-text: hsl(0, 0%, 100%);
+
+  --clr-text-main: hsl(60, 10%, 19%);
+}
+
+/* tema 3 */
+[data-theme="2"] {
+  --clr-main-bg: hsl(268, 75%, 9%);
+  --clr-toggle-bg: hsl(268, 71%, 12%);
+  --clr-keypad-bg: hsl(268, 71%, 12%);
+  --clr-screen-bg: hsl(268, 71%, 12%);
+  
+  --clr-key-num-bg: hsl(268, 47%, 21%);
+  --clr-key-num-shadow: hsl(290, 70%, 36%);
+  --clr-key-num-text: hsl(52, 100%, 62%);
+
+  --clr-key-action-bg: hsl(281, 89%, 26%);
+  --clr-key-action-shadow: hsl(285, 91%, 52%);
+  --clr-key-action-text: hsl(0, 0%, 100%);
+
+  --clr-key-toggle-bg: hsl(176, 100%, 44%);
+  --clr-key-toggle-shadow: hsl(177, 92%, 70%);
+  --clr-key-toggle-text: hsl(198, 20%, 13%);
+
+  --clr-text-main: hsl(52, 100%, 62%);
+}
+
+/* estilos generales */
+* {
+  box-sizing: border-box;   /* padding y border esten en el tamaño establecido */
+  margin: 0;
+  padding: 0;
+  font-family: 'League Spartan', sans-serif;
+  transition: background-color 0.5s ease;   /* es una transición cuando cambia el tema */
+}
+
+body {
+  background-color: var(--clr-main-bg);   /* el color del tema que este activado */
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--clr-text-main);
+}
+
+.calculator {
+  width: 100%;
+  max-width: 540px;
+  padding: 2rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;      /* espacio entre los elementos */
+}
+
+/* upper part de la calculadora y barrita de temas */
+.calc-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.brand-row {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.brand {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--clr-text-main);
+}
+
+.theme-section {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.theme-title {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--clr-text-main);
+}
+
+.theme-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.theme-labels {
+  display: flex;
+  justify-content: space-around;
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--clr-text-main);
+  padding: 0 0.25rem;
+}
+
+.theme-slider {
+  background-color: var(--clr-toggle-bg);
+  padding: 4px 6px;
+  border-radius: 15px;
+  width: 60px;
+}
+
+.theme-range {
+  width: 100%;
+  appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+.theme-range::-webkit-slider-thumb {    /* bolita de labarrita de temas */
+  appearance: none;
+  height: 16px;
+  width: 16px;
+  border-radius: 50%;
+  background: var(--clr-key-toggle-bg);
+  cursor: pointer;
+}
+
+/* estilo display */
+.display {
+  background-color: var(--clr-screen-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  text-align: right;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.display-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--clr-text-main);
+  overflow-x: auto;     /* desplazamiento horizontal cuando el texto se paso el ancho del display*/
+}
+
+/* estilo teclado de numeros con operadores */
+.keypad {
+  background-color: var(--clr-keypad-bg);
+  border-radius: 10px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.key-row {
+  display: flex;
+  gap: 1rem;
+}
+
+.key {
+  flex: 1;
+  border: none;
+  border-radius: 8px;
+  padding: 1rem 0;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+  background-color: var(--clr-key-num-bg);
+  color: var(--clr-key-num-text);
+  box-shadow: 0 4px 0 var(--clr-key-num-shadow);
+  transition: filter 0.2s;
+}
+
+/* efecto presionar boton */
+.key:active {       
+  transform: translateY(2px);
+  box-shadow: 0 2px 0 var(--clr-key-num-shadow);
+}
+
+/* estilos específicos para botones DEL, RESET  e = */
+.key.control, .key.action { 
+  font-size: 1.25rem;
+  background-color: var(--clr-key-action-bg);
+  color: var(--clr-key-action-text);
+  box-shadow: 0 4px 0 var(--clr-key-action-shadow);
+}
+
+.key.control:active, .key.action:active {   /* efecto presionar boton en botones especiales*/
+  box-shadow: 0 2px 0 var(--clr-key-action-shadow);
+}
+
+.key.operator {
+  font-size: 1.75rem;
+}
+
+/* Fila especial de hasta abajo (RESET e =) */
+.actions-row .key {
+  font-size: 1.25rem;
+  background-color: var(--clr-key-action-bg);
+  color: var(--clr-key-action-text);
+  box-shadow: 0 4px 0 var(--clr-key-action-shadow);
+}
+
+.actions-row .key:last-child {    /* toma el ultimo de la fila (=) */
+  background-color: var(--clr-key-toggle-bg);
+  color: var(--clr-key-toggle-text);
+  box-shadow: 0 4px 0 var(--clr-key-toggle-shadow);
+}
+
+.actions-row .key:last-child:active {
+  box-shadow: 0 2px 0 var(--clr-key-toggle-shadow);
+}
+
+/* Diseño celulares */
+@media (max-width: 400px) {
+  .calculator {
+    padding: 1rem 0.5rem;
+}
+.key {
+    font-size: 1.5rem;
+    padding: 0.75rem 0;
+    }
+}
