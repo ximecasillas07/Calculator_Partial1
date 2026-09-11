@@ -8,26 +8,23 @@
 
 ## September 10th Log Entry
 
-### Prompt
+### 1. High-Level Goal
 
-From our HTML file, extract all the classes that need styling and build the initial CSS structure for them.
+Set up the base CSS themes and classes required for the HTML, then start styling each component from there. Also, include any necessary components to make the project look as close as possible to the reference image in the instructions.
 
 ### 2. The Interaction Log
 
-_Document the primary prompts you used to generate the base code._
-
-| AI Tool Used       | Exact Initial Prompt                                                                                                                                                           | What the AI Generated (Summary/Snippet)                                                                                       |
-| :----------------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------- |
-| _e.g., ChatGPT-4o_ | _"Create a responsive navigation bar using Bootstrap 5 that has links for Home, SDG Dashboard, and Team Profile. Center the links on mobile and right-align them on desktop."_ | Generated full HTML structure with standard Bootstrap utility classes (`navbar-expand-lg`, `collapse navbar-collapse`, etc.). |
+| AI Tool Used | Exact Initial Prompt                                                                                                                                                                                                                                                                 | What the AI Generated (Summary/Snippet)                                                                                                                                                                                                                                 |
+| :----------- | :----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Gemini       | From these styling themes, create the initial strucutre of the css file, make varibales to save the data; from our HTML file, extract all the classes that need styling (we add the html file already finished and the styling themes that were in the instruccions of the midterm). | Generated the initial strucuture of the CSS file with variables as `--clr-main-bg`, `--clr-toggle-bg` and `--clr-keypad-bg` (and others..)                                                                                                                              |
+|              | Note: As we went along, we also asked for help to resolve specific questions and doubts we had about how to implement certain details such as such as configuring layout spacing, managing bounds of the display, styling special buttons, and adding box shadows.                   | For configuring layout spacing with `gap`, managing display bounds with `overflow`, styling interactive states via multi-class selectors like `.key.control:active and .key.action:active`, and implementing box shadows for a realistic 2-pixel downward press effect. |
 
 ### 3. The Human Audit & Modifications
 
-_What did the AI get wrong or omit? What manual changes did you make to integrate this code into your existing application structure? (Write 2-3 sentences explaining your adjustments)._
-
-- **What we changed/added:** The AI-generated code used static mock hrefs. We modified the HTML to use dynamic Express routing paths (`/` and `/sdg-dashboard`). We also adjusted the CSS padding manually to align with our project's custom color palette, and updated the responsive toggle button's `data-bs-target` to match our custom navbar wrapper ID.
+- **What we changed/added:** The AI gave us the boilerplate structure and variables we asked for, leaving the specific component classes empty. We filled in and mapped those classes to match our HTML code precisely, making sure all three theme variables hooked up correctly without messing up the layout. Also we include and unsterstand the new component of styling.
 
 ### 4. Integration & Learnings
 
 _How does this code integrate with the rest of your system? What is the core mechanism you learned?_
 
-- **Core Mechanics:** The navbar works by utilizing Bootstrap's responsive breakpoints. The `navbar-expand-lg` class keeps it expanded on desktop but triggers the collapsable menu via JS triggers on screen widths below 992px. We had to ensure the Bootstrap bundle JS script was correctly loaded in our base template.
+- **Core Mechanics:** This stylesheet serves as the visual foundation for the entire app, using custom properties tied to theme attributes so the interface shifts styles smoothly. We avoid writing duplicate code for every theme by telling the HTML to swap out those color values automatically with a single attribute change, keeping everything connected.
