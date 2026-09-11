@@ -8,9 +8,9 @@
 
 ## September 10th Log Entry
 
-### 1. High-Level Goal
+### Prompt
 
-From our HTML file, extract all the classes that need styling and build the initial CSS structure for them."
+From our HTML file, extract all the classes that need styling and build the initial CSS structure for them.
 
 ### 2. The Interaction Log
 
